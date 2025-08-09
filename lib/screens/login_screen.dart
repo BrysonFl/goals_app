@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:goals_app/widgets/input.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -33,47 +34,17 @@ class LoginFormState extends State<LoginForm> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextFormField(
+                Input(
+                  fillColor: Colors.white,
+                  placeholder: 'Username',
                   onChanged: (String value) => username = value,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-                    hintText: "Username",
-                    fillColor: Colors.white,
-                    hintStyle: TextStyle(
-                      fontSize: 15
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(color: Colors.red, width: 2)
-                    )
-                  ),
                   validator: (String? value) => value == null || value.isEmpty ? 'We need your username to validate' : null,
                 ),
                 SizedBox(height: 20),
-                TextFormField(
+                Input(
+                  fillColor: Colors.white,
+                  placeholder: 'Password',
                   obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-                    hintText: "Password",
-                    fillColor: Colors.white,
-                    hintStyle: TextStyle(
-                      fontSize: 15
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(color: Colors.red, width: 2)
-                    )
-                  ),
                   validator: (String? value) => value == null || value.isEmpty ? 'We need your password to validate' : null,
                   onChanged: (value) => password = value,
                 ),
